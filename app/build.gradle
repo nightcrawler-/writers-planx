@@ -77,6 +77,28 @@ android {
     viewBinding {
         enabled = true
     }
+
+    applicationVariants.all { variant ->
+        def apkName = "writers-planx"
+        variant.outputs.each { output ->
+            def apk = output.outputFileName.replace(".apk", "")
+
+            apkName += "-" + defaultConfig.versionName
+            if (variant.buildType.name == "release") {
+                apkName += "-release.apk"
+            } else {
+                apkName += ".apk"
+            }
+            if (!output.zipAlign) {
+                apkName = apkName.replace(".apk", "-unaligned.apk")
+            }
+
+            output.outputFileName = new File(apk, apkName)
+            logger.info("INFO: Set outputFile to "
+                    + output.outputFile
+                    + " for [" + output.name + "]")
+        }
+    }
 }
 
 dependencies {
