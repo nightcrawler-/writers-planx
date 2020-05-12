@@ -7,9 +7,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="place_holder">Our Prices\n
+    <string name="place_holder"> ** No Notifications Yet ** \n\nOur Prices\n
 We work within the customer’s budget. In this regard, please quote your price via live chat. Alternatively, you can proceed to ‘order now‘ and one of our representatives will send a message requesting you to quote your price after placing the order.  We believe in an inclusive approach which can only be achieved through price taking instead of price making.
 
 \nTerms of Payments\n
