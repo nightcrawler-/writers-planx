@@ -2,6 +2,7 @@ package com.cafrecode.writersplanx.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Database
 import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.PrimaryKey
@@ -27,11 +28,16 @@ interface MessageDao {
     fun list(): LiveData<List<Message>>
 }
 
+@Database(
+    entities = [Message::class],
+    version = 1
+)
 abstract class PlanxDatabase :  RoomDatabase(){
 
     companion object {
         @JvmStatic
         val DATABASE_NAME: String = "planx.db"
     }
+
     abstract fun messageDao(): MessageDao
 }
