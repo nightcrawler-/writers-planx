@@ -29,7 +29,7 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleRelease
     - name: Build release apk using GitHub
-      uses: Cafrecode/action-release-apk@1.0.1
+      uses: Cafrecode/action-release-apk@1.0.2
       env:
        GITHUB_TOKEN: ${{ secrets.TOKEN }}
        APP_FOLDER: app
