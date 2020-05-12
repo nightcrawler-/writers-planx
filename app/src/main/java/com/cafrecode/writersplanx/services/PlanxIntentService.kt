@@ -46,7 +46,6 @@ class PlanxIntentService : FirebaseMessagingService() {
 
     private fun persistMessage(data: RemoteMessage.Notification) {
         val msg = Message(
-            id = 0,
             title = data.title!!,
             text = data.body!!,
             imageUrl = data.imageUrl.toString(),
