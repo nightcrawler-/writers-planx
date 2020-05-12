@@ -5,11 +5,24 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import com.cafrecode.writersplanx.R
+import com.cafrecode.writersplanx.di.Injectable
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 
 import kotlinx.android.synthetic.main.activity_home.*
+import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return dispatchingAndroidInjector
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
