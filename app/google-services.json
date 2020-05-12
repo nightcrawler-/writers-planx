@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "7316367858-d2vrf1egqaf0g3q441b88o4id9rhvsvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cafrecode.writersplanx",
+            "certificate_hash": "4c8f9b8079e325d7a67f069df452b49b4c0d6937"
+          }
+        },
+        {
           "client_id": "7316367858-qllki7svr4rjediauorru8uegval4u1a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
