@@ -36,20 +36,20 @@ class PlanxIntentService : FirebaseMessagingService() {
         super.onMessageReceived(remoteMessage)
         Log.i(TAG, "Message: " + remoteMessage.data)
 
-        persistMessage(remoteMessage.data)
+        val notification = remoteMessage.notification
 
-        if (remoteMessage.getNotification() != null) {
+        if (notification != null) {
+            persistMessage(notification)
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification()!!.getBody());
         }
     }
 
-    private fun persistMessage(data: Map<String, String>) {
+    private fun persistMessage(data: RemoteMessage.Notification) {
         val msg = Message(
             id = 0,
-            title = data["title"]!!,
-            text = data["text"]!!,
-            imageUrl = data["image"],
-            name = data["name"]
+            title = data.title!!,
+            text = data.body!!,
+            imageUrl = data.imageUrl.toString()
         )
         repo.insert(msg)
     }

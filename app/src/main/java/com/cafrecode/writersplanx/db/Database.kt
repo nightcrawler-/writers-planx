@@ -15,8 +15,7 @@ data class Message(
     val id: Int,
     val title: String,
     val text: String,
-    var imageUrl: String?,
-    var name: String?
+    var imageUrl: String?
 )
 
 @Dao
@@ -30,7 +29,7 @@ interface MessageDao {
 
 @Database(
     entities = [Message::class],
-    version = 1
+    version = 2
 )
 abstract class PlanxDatabase :  RoomDatabase(){
 
