@@ -3,6 +3,7 @@ package com.cafrecode.writersplanx.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -44,7 +45,12 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
         }
 
         intent.extras?.let {
-            saveFromNotification(it)
+            try {
+                saveFromNotification(it)
+            } catch (ex: Exception) {
+                //just had to catch a whole freaking exception -- those data fields might come with different names, better not crash
+                Toast.makeText(this, "Message could nor be parsed", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
