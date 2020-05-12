@@ -35,4 +35,4 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.TOKEN }}
        APP_FOLDER: app
-       RELEASE_TITLE: $BUILD_NUMBER
+       RELEASE_TITLE: "$BUILD_NUMBER"
