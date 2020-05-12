@@ -1,6 +1,7 @@
 package com.cafrecode.writersplanx.binding
 
 import android.icu.text.RelativeDateTimeFormatter
+import android.text.format.DateUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -14,11 +15,11 @@ class BindingAdapters {
         @BindingAdapter("app:time")
         fun setText(view: TextView, value: Long) {
             val format = RelativeDateTimeFormatter.getInstance()
-            view.text = format.format(
-                (value / 1000).toDouble(),
-                RelativeDateTimeFormatter.Direction.LAST,
-                RelativeDateTimeFormatter.RelativeUnit.SECONDS
-            )
+            view.text = DateUtils.getRelativeTimeSpanString(
+                value,
+                System.currentTimeMillis(),
+                DateUtils.DAY_IN_MILLIS
+            );
         }
 
         @JvmStatic

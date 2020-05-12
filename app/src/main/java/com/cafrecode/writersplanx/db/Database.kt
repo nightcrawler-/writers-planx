@@ -17,7 +17,7 @@ data class Message(
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
-    val time = System.currentTimeMillis()
+    var time = System.currentTimeMillis()
 }
 
 @Dao
