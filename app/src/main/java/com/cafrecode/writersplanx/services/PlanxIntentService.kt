@@ -48,8 +48,7 @@ class PlanxIntentService : FirebaseMessagingService() {
         val msg = Message(
             title = data.title!!,
             text = data.body!!,
-            imageUrl = data.imageUrl.toString(),
-            time = data.eventTime
+            imageUrl = data.imageUrl.toString()
         )
         repo.insert(msg)
     }
