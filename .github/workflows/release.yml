@@ -1,9 +1,9 @@
 name: Build & Publish Release APK
 
 on:
- push:
-  branches:
-   - master
+  push:
+    tags:
+      - '*'
    
 jobs:
   build:
