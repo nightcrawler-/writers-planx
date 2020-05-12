@@ -10,23 +10,20 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.cafrecode.writersplanx.di
+package com.cafrecode.writersplanx.repositories
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.cafrecode.writersplanx.ui.HomeViewModel
-import dagger.Binds
-import dagger.Module
-import dagger.multibindings.IntoMap
+import com.cafrecode.writersplanx.AppExecutors
+import com.cafrecode.writersplanx.db.Message
+import com.cafrecode.writersplanx.db.MessageDao
+import javax.inject.Inject
 
-@Module
-abstract class ViewModelModule {
+class MessagesRepo @Inject constructor(private val dao: MessageDao, private val executors: AppExecutors) {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+    fun insert(message: Message) {
+        executors.diskIO().execute {
+            dao.insert(message)
+        }
+    }
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    fun list() = dao.list()
 }

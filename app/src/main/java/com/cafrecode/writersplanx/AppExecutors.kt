@@ -10,23 +10,33 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.cafrecode.writersplanx.di
+package com.cafrecode.writersplanx
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.cafrecode.writersplanx.ui.HomeViewModel
-import dagger.Binds
-import dagger.Module
-import dagger.multibindings.IntoMap
+import android.os.Handler
+import android.os.Looper
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import javax.inject.Inject
+import javax.inject.Singleton
 
-@Module
-abstract class ViewModelModule {
+@Singleton
+open class AppExecutors(private val diskIO: Executor, private val networkIO: Executor, private val mainThread: Executor) {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+    @Inject
+    constructor() : this(
+        Executors.newSingleThreadExecutor(), Executors.newFixedThreadPool(3),
+        MainThreadExecutor())
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    fun diskIO(): Executor = diskIO
+
+    fun networkIO(): Executor = networkIO
+
+    fun mainThread(): Executor = mainThread
+
+    private class MainThreadExecutor : Executor {
+        private val mainThreadHandler = Handler(Looper.getMainLooper())
+        override fun execute(command: Runnable) {
+            mainThreadHandler.post(command)
+        }
+    }
 }
