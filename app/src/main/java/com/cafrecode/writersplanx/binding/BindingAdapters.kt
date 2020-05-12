@@ -16,7 +16,7 @@ class BindingAdapters {
             val format = RelativeDateTimeFormatter.getInstance()
             view.text = format.format(
                 (value / 1000).toDouble(),
-                RelativeDateTimeFormatter.Direction.PLAIN,
+                RelativeDateTimeFormatter.Direction.LAST,
                 RelativeDateTimeFormatter.RelativeUnit.SECONDS
             )
         }
