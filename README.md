@@ -12,3 +12,10 @@ This app is generally designed to receive push notifications from FCM and aside 
 
 Messages/Notifications can be sent to the app in a number of custom formats and on pre-defined schedules by setting up the requirements on the Firebase web console.
 
+##### Steps
+1. Navigate to the Firebase Console for writers-planx project on https://console.firebase.google.com/u/0/project/writers-planx/notification. If you do not have permissions to access the resource, kindly send a request to the relevant authority. 
+2. Navigate to the 'Cloud Messaging' link on the side-menu.
+3. You will be presented with a console where you can configure your messages.
+4. It is encourged to include an image with your notification content.
+5. The notification will be propagated to _all_ devices either imediately or at the scheduled time.
+
