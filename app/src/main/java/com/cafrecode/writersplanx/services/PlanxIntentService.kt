@@ -49,7 +49,8 @@ class PlanxIntentService : FirebaseMessagingService() {
             id = 0,
             title = data.title!!,
             text = data.body!!,
-            imageUrl = data.imageUrl.toString()
+            imageUrl = data.imageUrl.toString(),
+            time = data.eventTime
         )
         repo.insert(msg)
     }

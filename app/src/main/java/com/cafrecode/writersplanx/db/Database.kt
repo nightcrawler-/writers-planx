@@ -15,7 +15,8 @@ data class Message(
     val id: Int,
     val title: String,
     val text: String,
-    var imageUrl: String?
+    var imageUrl: String?,
+    var time: Long?
 )
 
 @Dao
