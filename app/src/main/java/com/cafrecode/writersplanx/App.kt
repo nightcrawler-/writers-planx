@@ -16,7 +16,7 @@ class App : Application(), HasActivityInjector, HasServiceInjector {
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     @Inject
-    var dispatchingServiceInjector: DispatchingAndroidInjector<Service>? = null
+    lateinit var dispatchingServiceInjector: DispatchingAndroidInjector<Service>
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return dispatchingAndroidInjector
