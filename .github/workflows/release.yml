@@ -5,20 +5,18 @@ on:
     branches:
       - master
    
-jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate build number
-        uses: einaregilsson/build-number@v2 
-        with:
-          token: ${{secrets.github_token}}        
-      - name: Print new build number
-        run: echo "Build number is $BUILD_NUMBER"
-     
+jobs:    
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v2 
+      with:
+        token: ${{secrets.github_token}}        
+    - name: Print new build number
+        run: echo "Build number is $BUILD_NUMBER"
+
     - uses: actions/checkout@v1
     - name: set up JDK 1.8
       uses: actions/setup-java@v1
@@ -35,4 +33,4 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.TOKEN }}
        APP_FOLDER: app
-       RELEASE_TITLE: ${{ BUILD_NUMBER }}
+       RELEASE_TITLE: ${{ steps.buildnumber.outputs.build_number }}
