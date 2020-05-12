@@ -33,4 +33,4 @@ jobs:
       env:
        GITHUB_TOKEN: ${{ secrets.TOKEN }}
        APP_FOLDER: app
-       RELEASE_TITLE: ${{ steps.buildnumber.outputs.build_number }}
+       RELEASE_TITLE: ${{ GITHUB_RUN_NUMBER }}
