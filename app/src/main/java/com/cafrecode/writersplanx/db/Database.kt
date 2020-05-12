@@ -13,11 +13,11 @@ import androidx.room.RoomDatabase
 data class Message(
     val title: String,
     val text: String,
-    var imageUrl: String?,
-    var time: Long?
+    var imageUrl: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
+    var time = System.currentTimeMillis()
 }
 
 @Dao
@@ -31,7 +31,7 @@ interface MessageDao {
 
 @Database(
     entities = [Message::class],
-    version = 3
+    version = 4
 )
 abstract class PlanxDatabase :  RoomDatabase(){
 

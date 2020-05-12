@@ -78,6 +78,11 @@ android {
         enabled = true
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     applicationVariants.all { variant ->
         def apkName = "writers-planx"
         variant.outputs.each { output ->
