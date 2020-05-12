@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "7316367858",
+    "firebase_url": "https://writers-planx.firebaseio.com",
+    "project_id": "writers-planx",
+    "storage_bucket": "writers-planx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7316367858:android:15d034ec64893b57a2e36b",
+        "android_client_info": {
+          "package_name": "com.cafrecode.writersplanx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7316367858-d2vrf1egqaf0g3q441b88o4id9rhvsvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cafrecode.writersplanx",
+            "certificate_hash": "4c8f9b8079e325d7a67f069df452b49b4c0d6937"
+          }
+        },
+        {
+          "client_id": "7316367858-qllki7svr4rjediauorru8uegval4u1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cafrecode.writersplanx",
+            "certificate_hash": "bb8d28295d9594cfa4e1ff344fe5b3870799f056"
+          }
+        },
+        {
+          "client_id": "7316367858-hm12alghcuf9a42hppsceb05062feaav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeuhwj4apN5zkqE30NQwL_JhmB6kM9nE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7316367858-hm12alghcuf9a42hppsceb05062feaav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

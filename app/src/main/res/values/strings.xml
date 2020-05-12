@@ -2,11 +2,15 @@
     <string name="app_name">Writers Planx</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
+    <string name="home_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="place_holder"> ** No Notifications Yet ** \n\nOur Prices\n
+We work within the customer’s budget. In this regard, please quote your price via live chat. Alternatively, you can proceed to ‘order now‘ and one of our representatives will send a message requesting you to quote your price after placing the order.  We believe in an inclusive approach which can only be achieved through price taking instead of price making.
+
+\nTerms of Payments\n
+
+We operate under ‘Cash with Order’ terms of payment. In this regard, you may choose to make the full payment while placing your order. Alternatively, you can make a partial payment and we shall put your order on progressive delivery. We will submit draft copies of your assignment subsequent to the partial amounts paid for the order.</string>
 </resources>
