@@ -1,17 +1,20 @@
 package com.cafrecode.writersplanx.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.cafrecode.writersplanx.R
+import com.cafrecode.writersplanx.db.Message
 import com.cafrecode.writersplanx.di.Injectable
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
-
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
@@ -19,6 +22,13 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    val viewModel: HomeViewModel by viewModels {
+        viewModelFactory
+    }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return dispatchingAndroidInjector
@@ -33,6 +43,24 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        intent.extras?.let {
+            try {
+                saveFromNotification(it)
+            } catch (ex: Exception) {
+                //just had to catch a whole freaking exception -- those data fields might come with different names, better not crash
+                Toast.makeText(this, "Message could nor be parsed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun saveFromNotification(extras: Bundle) {
+        val msg = Message(
+            title = extras.getString("title")!!,
+            text = extras.getString("text")!!,
+            imageUrl = extras.getString("imageUrl")
+        )
+        viewModel.insert(msg)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

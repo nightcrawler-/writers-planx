@@ -14,20 +14,20 @@ import com.cafrecode.writersplanx.db.Message
 import com.cafrecode.writersplanx.di.Injectable
 import javax.inject.Inject
 
-const val TAG = "HomeFragment"
+const val TAG = "Home"
 
 class HomeFragment : Fragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var binding: FragmentHomeBinding
-
-    val adapter = HomeAdapter()
-
     val viewModel: HomeViewModel by viewModels {
         viewModelFactory
     }
+
+    lateinit var binding: FragmentHomeBinding
+
+    val adapter = HomeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +42,6 @@ class HomeFragment : Fragment(), Injectable {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.list().observe(viewLifecycleOwner, Observer {
-            Log.i(TAG, "data: $it")
             if (it.isNotEmpty()) {
                 adapter.messages = it as ArrayList<Message>
                 binding.content.visibility = View.GONE

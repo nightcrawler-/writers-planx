@@ -19,3 +19,18 @@ Messages/Notifications can be sent to the app in a number of custom formats and 
 4. It is encourged to include an image with your notification content.
 5. The notification will be propagated to _all_ devices either imediately or at the scheduled time.
 
+### IMPORTANT
+
+When constructing messages, fill out the required form in the main section:
+![Screenshot](files/fcm-not.png)
+
+Then move down to the custom section and make sure to fill out the 3 optional values with names exactly(case sensitive) as in the below screenshot (Each corresponds to the values input above and are required in order to preserve the notification if it is delivered while the app is in the background):
+1. title 
+2. text
+3. imageUrl
+
+![Screenshot](files/fcm-extra.png)
+
+Make sure the three fields are filled with the corresponding values provided in the first section.
+
+![Screenshot](files/fcm-custom.png)
