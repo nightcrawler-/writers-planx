@@ -11,13 +11,14 @@ import androidx.room.RoomDatabase
 
 @Entity(tableName = "messages")
 data class Message(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
     val title: String,
     val text: String,
     var imageUrl: String?,
     var time: Long?
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null
+}
 
 @Dao
 interface MessageDao {
@@ -30,7 +31,7 @@ interface MessageDao {
 
 @Database(
     entities = [Message::class],
-    version = 2
+    version = 3
 )
 abstract class PlanxDatabase :  RoomDatabase(){
 
