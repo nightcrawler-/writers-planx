@@ -22,6 +22,8 @@
             android:layout_margin="10dp">
 
             <TextView
+                android:lineSpacingExtra="1dp"
+                android:lineSpacingMultiplier="1.3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/place_holder" />
