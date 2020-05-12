@@ -13,19 +13,44 @@
 package com.cafrecode.writersplanx.services
 
 import android.util.Log
+import com.cafrecode.writersplanx.db.Message
+import com.cafrecode.writersplanx.repositories.MessagesRepo
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 const val TAG = "PlanxIntentService"
 
 class PlanxIntentService : FirebaseMessagingService() {
 
+    @Inject
+    lateinit var repo: MessagesRepo
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidInjection.inject(this)
+    }
+
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
         Log.i(TAG, "Message: " + remoteMessage.data)
 
+        persistMessage(remoteMessage.data)
+
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification()!!.getBody());
         }
+    }
+
+    private fun persistMessage(data: Map<String, String>) {
+        val msg = Message(
+            id = 0,
+            title = data["title"]!!,
+            text = data["text"]!!,
+            imageUrl = data["image"],
+            name = data["name"]
+        )
+        repo.insert(msg)
     }
 }
