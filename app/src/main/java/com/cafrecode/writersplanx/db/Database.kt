@@ -17,7 +17,7 @@ data class Message(
     var time: Long?
 ) {
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null
+    var id: Int? = null
 }
 
 @Dao
