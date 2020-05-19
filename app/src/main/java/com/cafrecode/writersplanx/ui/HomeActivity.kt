@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    val viewModel: NotificationsViewModel by viewModels {
+    private val viewModel: NotificationsViewModel by viewModels {
         viewModelFactory
     }
 

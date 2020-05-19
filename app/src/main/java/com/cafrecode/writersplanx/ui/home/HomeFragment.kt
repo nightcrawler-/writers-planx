@@ -25,6 +25,7 @@ class HomeFragment : Fragment(), Injectable {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
+        binding.webview.loadUrl("https://intel-writers.com/")
         return binding.root
     }
 
