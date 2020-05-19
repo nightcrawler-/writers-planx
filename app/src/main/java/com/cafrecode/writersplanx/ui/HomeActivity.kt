@@ -16,6 +16,7 @@ import com.cafrecode.writersplanx.R
 import com.cafrecode.writersplanx.db.Message
 import com.cafrecode.writersplanx.di.Injectable
 import com.cafrecode.writersplanx.ui.home.HomeViewModel
+import com.cafrecode.writersplanx.ui.notifications.NotificationsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -31,7 +32,7 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    val viewModel: HomeViewModel by viewModels {
+    val viewModel: NotificationsViewModel by viewModels {
         viewModelFactory
     }
 
