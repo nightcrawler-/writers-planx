@@ -14,21 +14,11 @@ import com.cafrecode.writersplanx.di.Injectable
 import com.cafrecode.writersplanx.ui.notifications.NotificationsAdapter
 import javax.inject.Inject
 
-const val TAG = "Home"
+const val TAG = "HomeFragment"
 
 class HomeFragment : Fragment(), Injectable {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    val viewModel: HomeViewModel by viewModels {
-        viewModelFactory
-    }
-
     lateinit var binding: FragmentHomeBinding
-
-    val adapter =
-        NotificationsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -13,13 +13,7 @@
 package com.cafrecode.writersplanx.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.cafrecode.writersplanx.db.Message
-import com.cafrecode.writersplanx.repositories.MessagesRepo
-import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val repo: MessagesRepo) : ViewModel() {
+class HomeViewModel : ViewModel() {
 
-    fun insert(message: Message) = repo.insert(message)
-
-    fun list() = repo.list()
 }
