@@ -14,7 +14,7 @@ package com.cafrecode.writersplanx.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.cafrecode.writersplanx.ui.HomeViewModel
+import com.cafrecode.writersplanx.ui.notifications.NotificationsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -24,8 +24,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+    @ViewModelKey(NotificationsViewModel::class)
+    abstract fun bindNotificationsViewModel(notificationsViewModel: NotificationsViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

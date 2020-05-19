@@ -12,7 +12,8 @@
 
 package com.cafrecode.writersplanx.di
 
-import com.cafrecode.writersplanx.ui.HomeFragment
+import com.cafrecode.writersplanx.ui.home.HomeFragment
+import com.cafrecode.writersplanx.ui.notifications.NotificationsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -21,4 +22,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeHomeFragment(): HomeFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeNotificationsFragment(): NotificationsFragment
 }

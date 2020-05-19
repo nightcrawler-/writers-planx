@@ -1,7 +1,6 @@
-package com.cafrecode.writersplanx.ui
+package com.cafrecode.writersplanx.ui.notifications
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,31 +8,30 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.cafrecode.writersplanx.databinding.FragmentHomeBinding
+import com.cafrecode.writersplanx.databinding.FragmentNotificationsBinding
 import com.cafrecode.writersplanx.db.Message
 import com.cafrecode.writersplanx.di.Injectable
 import javax.inject.Inject
 
-const val TAG = "Home"
-
-class HomeFragment : Fragment(), Injectable {
+class NotificationsFragment : Fragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    val viewModel: HomeViewModel by viewModels {
+    private val viewModel: NotificationsViewModel by viewModels {
         viewModelFactory
     }
 
-    lateinit var binding: FragmentHomeBinding
+    lateinit var binding: FragmentNotificationsBinding
 
-    val adapter = HomeAdapter()
+    val adapter =
+        NotificationsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater)
+        binding = FragmentNotificationsBinding.inflate(inflater)
         binding.list.adapter = adapter
         return binding.root
     }
