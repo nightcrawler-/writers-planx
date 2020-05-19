@@ -15,7 +15,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.cafrecode.writersplanx.R
 import com.cafrecode.writersplanx.db.Message
 import com.cafrecode.writersplanx.di.Injectable
-import com.cafrecode.writersplanx.ui.home.HomeViewModel
 import com.cafrecode.writersplanx.ui.notifications.NotificationsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.android.AndroidInjector
