@@ -1,4 +1,4 @@
-package com.cafrecode.writersplanx.ui
+package com.cafrecode.writersplanx.ui.notifications
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cafrecode.writersplanx.databinding.ListItemMessageBinding
 import com.cafrecode.writersplanx.db.Message
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class NotificationsAdapter : RecyclerView.Adapter<NotificationsAdapter.ViewHolder>() {
 
     var messages: ArrayList<Message> = arrayListOf()
         set(value) {
@@ -40,6 +40,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     else 0
 
     companion object {
-        private val TAG = HomeAdapter::class.java.simpleName
+        private val TAG = NotificationsAdapter::class.java.simpleName
     }
 }
