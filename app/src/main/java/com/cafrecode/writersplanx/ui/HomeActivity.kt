@@ -73,6 +73,7 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
             imageUrl = extras.getString("imageUrl")
         )
         viewModel.insert(msg)
+        findNavController(R.id.nav_host_fragment).navigate(R.id.navigation_notifications)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
